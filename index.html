@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Licitații Moldova - Platforma Online de Licitații</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-brand">
+                <h1>🏛️ Licitații Moldova</h1>
+            </div>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link active">Acasă</a>
+                <a href="adauga-licitatie.html" class="nav-link">Adaugă Licitație</a>
+                <a href="#" class="nav-link">Contul Meu</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <section class="hero">
+            <div class="hero-content">
+                <h2>Platforma Națională de Licitații Online</h2>
+                <p>Participă la licitații transparente și sigure din Republica Moldova</p>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">247</span>
+                        <span class="stat-label">Licitații Active</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">1,850</span>
+                        <span class="stat-label">Participanți</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">95%</span>
+                        <span class="stat-label">Rata de Succes</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="filters">
+            <div class="filter-container">
+                <h3>Filtrează Licitațiile</h3>
+                <div class="filter-row">
+                    <select id="categoryFilter" class="filter-select">
+                        <option value="">Toate Categoriile</option>
+                        <option value="constructii">Construcții</option>
+                        <option value="servicii">Servicii</option>
+                        <option value="bunuri">Bunuri</option>
+                        <option value="tehnologie">Tehnologie</option>
+                    </select>
+                    <select id="statusFilter" class="filter-select">
+                        <option value="">Toate Statusurile</option>
+                        <option value="active">Active</option>
+                        <option value="in-curand">În Curând</option>
+                        <option value="finalizate">Finalizate</option>
+                    </select>
+                    <input type="text" id="searchInput" placeholder="Caută licitații..." class="search-input">
+                </div>
+            </div>
+        </section>
+
+        <section class="auctions">
+            <div class="auctions-header">
+                <h3>Licitații Active</h3>
+                <span class="auction-count">Afișez <span id="displayCount">6</span> din <span id="totalCount">247</span> licitații</span>
+            </div>
+            
+            <div class="auctions-grid" id="auctionsGrid">
+                <!-- Licitațiile vor fi populate dinamic de JavaScript -->
+            </div>
+
+            <div class="load-more">
+                <button class="btn btn-secondary" id="loadMoreBtn">Încarcă Mai Multe</button>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Licitații Moldova</h4>
+                <p>Platforma națională pentru licitații publice transparente și eficiente.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Link-uri Utile</h4>
+                <ul>
+                    <li><a href="#">Despre Noi</a></li>
+                    <li><a href="#">Cum Funcționează</a></li>
+                    <li><a href="#">Regulament</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Suport</h4>
+                <ul>
+                    <li><a href="#">Centru de Ajutor</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Raportează o Problemă</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Licitații Moldova. Toate drepturile rezervate.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

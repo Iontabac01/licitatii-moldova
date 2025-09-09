@@ -1,0 +1,347 @@
+/* Auction Details Page Specific Styles */
+
+.breadcrumb {
+    margin: 2rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-secondary);
+}
+
+.breadcrumb a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+.auction-detail {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 3rem;
+    margin-bottom: 3rem;
+}
+
+.auction-main {
+    background: var(--background);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 2rem;
+}
+
+.auction-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.auction-title-section {
+    margin-bottom: 2rem;
+}
+
+.auction-title-main {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.auction-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.auction-category-large {
+    background: var(--primary-color);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+    font-weight: 500;
+}
+
+.auction-id {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.auction-status-large {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+    font-weight: 500;
+}
+
+.auction-status-large.active {
+    background: rgba(22, 163, 74, 0.1);
+    color: var(--success-color);
+}
+
+.auction-status-large.upcoming {
+    background: rgba(100, 116, 139, 0.1);
+    color: var(--secondary-color);
+}
+
+.auction-description-full {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--text-primary);
+    margin-bottom: 2rem;
+}
+
+.auction-section {
+    margin-bottom: 2rem;
+}
+
+.auction-section h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+}
+
+.requirements-list {
+    list-style: none;
+    padding: 0;
+}
+
+.requirements-list li {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+}
+
+.requirements-list li:last-child {
+    border-bottom: none;
+}
+
+.requirements-list li::before {
+    content: '✓';
+    color: var(--success-color);
+    font-weight: bold;
+    margin-top: 0.1rem;
+}
+
+.documents-list {
+    list-style: none;
+    padding: 0;
+}
+
+.documents-list li {
+    margin-bottom: 0.5rem;
+}
+
+.documents-list a {
+    color: var(--primary-color);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    border-radius: var(--border-radius);
+    transition: background-color 0.2s;
+}
+
+.documents-list a:hover {
+    background: var(--surface);
+}
+
+.documents-list a::before {
+    content: '📄';
+}
+
+/* Sidebar Cards */
+.sidebar-card {
+    background: var(--background);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+}
+
+.price-card {
+    border-left: 4px solid var(--success-color);
+}
+
+.price-amount {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--success-color);
+    margin-bottom: 0.5rem;
+}
+
+.price-label {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.countdown-card {
+    border-left: 4px solid var(--warning-color);
+}
+
+.countdown-timer {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--warning-color);
+    margin-bottom: 0.5rem;
+}
+
+.countdown-label {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.info-card h4 {
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+}
+
+.info-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.info-item:last-child {
+    border-bottom: none;
+}
+
+.info-label {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.info-value {
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.participation-card {
+    border-left: 4px solid var(--primary-color);
+}
+
+.participation-button {
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.participation-info {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    text-align: center;
+}
+
+.contact-card h4 {
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+}
+
+.contact-info {
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.contact-info strong {
+    color: var(--text-primary);
+    display: block;
+    margin-top: 0.5rem;
+}
+
+/* Timeline */
+.timeline {
+    position: relative;
+    padding-left: 2rem;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 1rem;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--border-color);
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -1.75rem;
+    top: 0.5rem;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    border: 2px solid var(--background);
+}
+
+.timeline-item.completed::before {
+    background: var(--success-color);
+}
+
+.timeline-item.current::before {
+    background: var(--warning-color);
+    box-shadow: 0 0 0 4px rgba(234, 88, 12, 0.2);
+}
+
+.timeline-date {
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.25rem;
+}
+
+.timeline-event {
+    color: var(--text-secondary);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .auction-detail {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .auction-title-main {
+        font-size: 1.5rem;
+    }
+    
+    .auction-meta {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .price-amount {
+        font-size: 1.5rem;
+    }
+    
+    .countdown-timer {
+        font-size: 1.2rem;
+    }
+    
+    .timeline {
+        padding-left: 1.5rem;
+    }
+    
+    .timeline::before {
+        left: 0.75rem;
+    }
+    
+    .timeline-item::before {
+        left: -1.25rem;
+    }
+}

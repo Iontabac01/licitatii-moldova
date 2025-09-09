@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adaugă Licitație - Licitații Moldova</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="form.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-brand">
+                <h1>🏛️ Licitații Moldova</h1>
+            </div>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Acasă</a>
+                <a href="adauga-licitatie.html" class="nav-link active">Adaugă Licitație</a>
+                <a href="#" class="nav-link">Contul Meu</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <div class="breadcrumb">
+            <a href="index.html">Acasă</a>
+            <span>›</span>
+            <span>Adaugă Licitație</span>
+        </div>
+
+        <div class="form-container">
+            <div class="form-header">
+                <h1>Adaugă o Nouă Licitație</h1>
+                <p>Completează formularul de mai jos pentru a publica o licitație pe platforma națională.</p>
+            </div>
+
+            <form id="auctionForm" class="auction-form">
+                <div class="form-section">
+                    <h3>Informații Generale</h3>
+                    
+                    <div class="form-group">
+                        <label for="title" class="form-label">Titlul Licitației *</label>
+                        <input type="text" id="title" name="title" class="form-input" required 
+                               placeholder="Ex: Modernizarea sistemului de iluminat public">
+                        <div class="form-help">Introdu un titlu descriptiv și concis pentru licitația ta</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="category" class="form-label">Categoria *</label>
+                        <select id="category" name="category" class="form-select" required>
+                            <option value="">Selectează categoria</option>
+                            <option value="constructii">Construcții</option>
+                            <option value="servicii">Servicii</option>
+                            <option value="bunuri">Bunuri</option>
+                            <option value="tehnologie">Tehnologie</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="description" class="form-label">Descrierea Scurtă *</label>
+                        <textarea id="description" name="description" class="form-textarea" rows="4" required
+                                  placeholder="Descrie pe scurt obiectivele și scopul licitației..."></textarea>
+                        <div class="character-count">
+                            <span id="descriptionCount">0</span>/500 caractere
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="fullDescription" class="form-label">Descrierea Detaliată</label>
+                        <div class="editor-toolbar">
+                            <button type="button" class="editor-btn" onclick="formatText('bold')" title="Bold">
+                                <strong>B</strong>
+                            </button>
+                            <button type="button" class="editor-btn" onclick="formatText('italic')" title="Italic">
+                                <em>I</em>
+                            </button>
+                            <button type="button" class="editor-btn" onclick="formatText('insertUnorderedList')" title="Listă">
+                                ≡
+                            </button>
+                        </div>
+                        <div id="fullDescription" class="form-editor" contenteditable="true" 
+                             data-placeholder="Introdu o descriere detaliată a licitației, inclusiv obiective, cerințe specifice, și alte informații relevante..."></div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3>Detalii Financiare și Temporale</h3>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="estimatedValue" class="form-label">Valoarea Estimată *</label>
+                            <div class="input-group">
+                                <input type="number" id="estimatedValue" name="estimatedValue" class="form-input" 
+                                       required min="0" step="0.01" placeholder="0.00">
+                                <span class="input-suffix">MDL</span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="deadline" class="form-label">Data Limită *</label>
+                            <input type="datetime-local" id="deadline" name="deadline" class="form-input" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="startDate" class="form-label">Data de Începere</label>
+                            <input type="date" id="startDate" name="startDate" class="form-input">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="duration" class="form-label">Durata Estimată</label>
+                            <select id="duration" name="duration" class="form-select">
+                                <option value="">Selectează durata</option>
+                                <option value="1-3-luni">1-3 luni</option>
+                                <option value="3-6-luni">3-6 luni</option>
+                                <option value="6-12-luni">6-12 luni</option>
+                                <option value="peste-1-an">Peste 1 an</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3>Cerințe de Participare</h3>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Cerințe Obligatorii</label>
+                        <div class="requirements-container" id="requirementsContainer">
+                            <div class="requirement-item">
+                                <input type="text" class="requirement-input" placeholder="Ex: Experiență de minimum 5 ani">
+                                <button type="button" class="remove-requirement" onclick="removeRequirement(this)">×</button>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-secondary add-requirement" onclick="addRequirement()">
+                            + Adaugă Cerință
+                        </button>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3>Informații de Contact</h3>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="organizer" class="form-label">Organizator *</label>
+                            <input type="text" id="organizer" name="organizer" class="form-input" required
+                                   placeholder="Ex: Primăria municipiului Chișinău">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contactName" class="form-label">Persoana de Contact *</label>
+                            <input type="text" id="contactName" name="contactName" class="form-input" required
+                                   placeholder="Numele și prenumele">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="contactPhone" class="form-label">Telefon *</label>
+                            <input type="tel" id="contactPhone" name="contactPhone" class="form-input" required
+                                   placeholder="+373 22 22 22 22">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contactEmail" class="form-label">Email *</label>
+                            <input type="email" id="contactEmail" name="contactEmail" class="form-input" required
+                                   placeholder="email@organizatie.md">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3>Documente Anexe</h3>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Încarcă Documente</label>
+                        <div class="file-upload-area" id="fileUploadArea">
+                            <div class="file-upload-content">
+                                <div class="file-upload-icon">📁</div>
+                                <p>Trage documentele aici sau <span class="file-link">alege fișierele</span></p>
+                                <small>PDF, DOC, DOCX, XLS, XLSX până la 10MB per fișier</small>
+                            </div>
+                            <input type="file" id="fileInput" multiple accept=".pdf,.doc,.docx,.xls,.xlsx" style="display: none;">
+                        </div>
+                        <div class="uploaded-files" id="uploadedFiles"></div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3>Setări Avansate</h3>
+                    
+                    <div class="form-group">
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="publicAuction" name="publicAuction" checked>
+                            <label for="publicAuction">Licitație publică (vizibilă pentru toți utilizatorii)</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="emailNotifications" name="emailNotifications" checked>
+                            <label for="emailNotifications">Notificări email pentru actualizări</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary" onclick="saveDraft()">Salvează ca Ciornă</button>
+                    <button type="submit" class="btn btn-primary">Publică Licitația</button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Licitații Moldova</h4>
+                <p>Platforma națională pentru licitații publice transparente și eficiente.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Link-uri Utile</h4>
+                <ul>
+                    <li><a href="#">Despre Noi</a></li>
+                    <li><a href="#">Cum Funcționează</a></li>
+                    <li><a href="#">Regulament</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Suport</h4>
+                <ul>
+                    <li><a href="#">Centru de Ajutor</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Raportează o Problemă</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Licitații Moldova. Toate drepturile rezervate.</p>
+        </div>
+    </footer>
+
+    <script src="form.js"></script>
+</body>
+</html>
